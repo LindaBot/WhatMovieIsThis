@@ -18,3 +18,10 @@ h1 {
     width: 50vw;
     background-color: white;
 }
+
+.formOverlay{
+    width: 50vw;
+    min-height:500px;
+    background-color:white;
+    text-align: center;
+}
