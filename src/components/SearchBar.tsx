@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 interface IProps{
-    defaultValue?: string
+    onSubmit?: any
 }
 
 interface IStates{
@@ -12,7 +12,7 @@ export default class SearchBar extends React.Component<IProps, IStates>{
     constructor(props: IProps){
         super(props);
         this.state = { 
-            value: this.props.defaultValue 
+            value: "Default" 
         };
     }
 
@@ -25,15 +25,16 @@ export default class SearchBar extends React.Component<IProps, IStates>{
         )
     }
 
-    public handleSubmit = () => {
-        return;
+    public handleClick = () => {
+        const value = this.state.value;
+        this.props.onSubmit(value);
     }
 
     public render(){
         return(
             <div>
                 <input value={this.state.value} onChange={this.handleChange} />
-                <button onClick={this.handleSubmit}>Search</button>
+                <button onClick={this.handleClick}>Search</button>
                 <p>{this.state.value}</p>
             </div>
         );
