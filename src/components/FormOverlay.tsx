@@ -1,8 +1,11 @@
 import * as React from "react"
+import DisplayInfo from './DisplayInfo';
 import SearchBar from './SearchBar';
+
 
 interface IStates{
     movieInfo: any
+    movieJSON: any
     searchQuery?: any
 }
 
@@ -13,7 +16,8 @@ export default class FormOverlay extends React.Component<{}, IStates>{
         super(props);
         this.state = {
             movieInfo: "",
-            searchQuery: ""
+            movieJSON: JSON,
+            searchQuery: "",
         }
     }
 
@@ -31,8 +35,9 @@ export default class FormOverlay extends React.Component<{}, IStates>{
         const data = await fetch(apiCallString);
         const dataJSON = await data.json();         
         this.setState({
-            movieInfo: JSON.stringify(dataJSON)
-        })
+            movieInfo: JSON.stringify(dataJSON),
+            movieJSON: dataJSON
+        });
     }
     
 
@@ -42,6 +47,7 @@ export default class FormOverlay extends React.Component<{}, IStates>{
                 <SearchBar onSubmit={this.handleClick}/>
                 <p>This is the value we got: {this.state.searchQuery}</p>
                 <p>Movie info: {this.state.movieInfo}</p>
+                <DisplayInfo dataJSON={this.state.movieJSON}/>
             </div>
         );
     }
