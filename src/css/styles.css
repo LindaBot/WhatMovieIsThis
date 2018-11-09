@@ -20,7 +20,7 @@ h1 {
 }
 
 .formOverlay{
-    width: 50vw;
+    width: 100%;
     min-height:500px;
     background-color:white;
     text-align: center;
