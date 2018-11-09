@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 interface IState{
-    dataJSON: any
+    nothing: any;
 }
 
 interface IProps{
@@ -9,17 +9,36 @@ interface IProps{
 }
 
 export default class DisplayInfo extends React.Component<IProps, IState>{
-    
-    public validMovie = this.props.dataJSON.Response === "True" ? 1 : 0;
     constructor(props: IProps){
         super(props);
+        this.state = {
+            nothing: null
+        };
     }
     
 
     public render() {
+        let validMovie;
+        if (this.props.dataJSON === JSON){
+            // Empty JSON
+            validMovie = 0;
+        } else {
+            validMovie = 1;
+        }
+        
         return(
             <div>
-                <p>{this.validMovie}</p>
+                <p>
+                {validMovie === 1 
+                    ? 
+                    <div>
+                        <p>yes movie</p>
+                    </div>
+                    :
+                    <div>
+                        <p>no movie</p>
+                    </div>
+                }</p>
             </div>
         );
     }

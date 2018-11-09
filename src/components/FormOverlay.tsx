@@ -25,13 +25,13 @@ export default class FormOverlay extends React.Component<{}, IStates>{
         this.setState({
             searchQuery: value
         });
-        this.getMovie();
+        this.getMovie(value);
     }
 
-    public getMovie = async () => {
+    public getMovie = async (movieName: any) => {
         // API key: 55d9f3f4
         // Example call: http://www.omdbapi.com/?apikey=55d9f3f4&t=MOVIENAME
-        const apiCallString = "http://www.omdbapi.com/?apikey=55d9f3f4&t=" + this.state.searchQuery;
+        const apiCallString = "http://www.omdbapi.com/?apikey=55d9f3f4&t=" + movieName;
         const data = await fetch(apiCallString);
         const dataJSON = await data.json();         
         this.setState({
