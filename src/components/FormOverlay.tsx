@@ -45,8 +45,8 @@ export default class FormOverlay extends React.Component<{}, IStates>{
         return(
             <div className="formOverlay">
                 <SearchBar onSubmit={this.handleClick}/>
-                <p>This is the value we got: {this.state.searchQuery}</p>
-                <p>Movie info: {this.state.movieInfo}</p>
+                {/* <p>This is the value we got: {this.state.searchQuery}</p> */}
+                {/* <p>Movie info: {this.state.movieInfo}</p> */}
                 <DisplayInfo dataJSON={this.state.movieJSON}/>
             </div>
         );

@@ -1,4 +1,7 @@
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 import * as React from 'react'
+
 
 interface IProps{
     onSubmit?: any
@@ -32,11 +35,10 @@ export default class SearchBar extends React.Component<IProps, IStates>{
 
     public render(){
         return(
-            <div>
-                <input value={this.state.value} onChange={this.handleChange} />
-                <button onClick={this.handleClick}>Search</button>
-                <p>{this.state.value}</p>
-            </div>
+            <form className="Search form-inline md-form mr-auto mb-4" >
+                <TextField label="Movie Name" value={this.state.value} onChange={this.handleChange} className="mr-sm-2 Searchbar" />
+                <Button onClick={this.handleClick} className="btn btn-outline-warning btn-rounded btn-sm my-0">Search</Button>
+            </form>
         );
     }
 }

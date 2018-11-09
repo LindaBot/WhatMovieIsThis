@@ -25,3 +25,15 @@ h1 {
     background-color:white;
     text-align: center;
 }
+
+.Search{
+    min-height: 200px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center
+}
+
+.Searchbar{
+    margin: 20px !important;
+}
